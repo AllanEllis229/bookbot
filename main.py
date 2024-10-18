@@ -3,7 +3,8 @@ def main():
     text = get_book_text(book_path)
     word_count = book_words(text)
     #print(f"{word_count} words found in the document")
-    book_letters(text)
+    letters_count = book_letters(text)
+    print(letters_count)
 
 
 def get_book_text(path):  
@@ -17,5 +18,13 @@ def book_words(text):
 def book_letters(text):
     letters = {}
     for l in text.lower():
+        if l in letters:
+            letters[l] += 1
+        else:
+            letters[l] = 1
+    return letters
+
+            
+        
 
 main()
